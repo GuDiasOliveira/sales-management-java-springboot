@@ -62,17 +62,9 @@ public class Sale {
 		return this.seller;
 	}
 	
-	public long getSellerId() {
-		return this.seller.getId();
-	}
-	
 	public void setSellerId(long sellerId) {
 		if (this.seller == null)
 			this.seller = new Seller();
 		this.seller.setId(sellerId);
-	}
-
-	public String getSellerName() {
-		return this.seller.getName();
 	}
 }

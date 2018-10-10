@@ -39,7 +39,7 @@ public class SaleController {
 	@ResponseBody
 	public Sale create(@RequestBody Sale sale) {
 		sale = saleDao.save(sale);
-		sale.setSeller(sellerDao.findById(sale.getSellerId()).get());
+		sale.setSeller(sellerDao.findById(sale.getSeller().getId()).get());
 		return sale;
 	}
 	
