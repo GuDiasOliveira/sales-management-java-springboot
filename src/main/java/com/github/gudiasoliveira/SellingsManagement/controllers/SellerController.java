@@ -22,7 +22,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.github.gudiasoliveira.SellingsManagement.dao.SaleDao;
 import com.github.gudiasoliveira.SellingsManagement.dao.SellerDao;
+import com.github.gudiasoliveira.SellingsManagement.models.Sale;
 import com.github.gudiasoliveira.SellingsManagement.models.Seller;
 
 @RestController
@@ -31,6 +33,9 @@ public class SellerController {
 	
 	@Autowired
 	SellerDao sellerDao;
+	
+	@Autowired
+	SaleDao saleDao;
 	
 	@PostMapping("/")
 	@ResponseBody
@@ -68,6 +73,16 @@ public class SellerController {
 		} catch (EmptyResultDataAccessException e) {
 			throw new SellerNotFoundException();
 		}
+	}
+	
+	@GetMapping("/{id}/sales")
+	public List<Sale> getSales(@PathVariable long id) {
+		return toList(saleDao.findBySeller(sellerDao.findById(id).get()));
+	}
+	
+	@GetMapping("/{id}/salesReport")
+	public Map<String, Object> salesReport(@PathVariable long id) {
+		return new HashMap<>();
 	}
 	
 	private static <T> List<T> toList(Iterable<T> it) {
