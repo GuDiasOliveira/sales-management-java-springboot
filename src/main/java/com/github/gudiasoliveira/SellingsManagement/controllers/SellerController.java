@@ -80,11 +80,6 @@ public class SellerController {
 		return toList(saleDao.findBySeller(sellerDao.findById(id).get()));
 	}
 	
-	@GetMapping("/{id}/salesReport")
-	public Map<String, Object> salesReport(@PathVariable long id) {
-		return new HashMap<>();
-	}
-	
 	private static <T> List<T> toList(Iterable<T> it) {
 		List<T> list = new ArrayList<>();
 		for (T el : it)

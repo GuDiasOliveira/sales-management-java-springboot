@@ -27,7 +27,7 @@ public class Sale {
 	
 	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "fk_order")
+	@JoinColumn(name = "seller_id")
 	private Seller seller;
 	
 	public long getId() {
