@@ -38,14 +38,6 @@ public class SellingsManagementApplicationTests {
 	
 	@Autowired
 	private ObjectMapper objMapper;
-
-//	@Test
-//	public void testMessage() throws Exception {
-//		this.mockMvc.perform(get("/foo/hello-world.html"))
-//				.andDo(print())
-//				.andExpect(status().isOk())
-//				.andExpect(content().string(containsString("Hello world")));
-//	}
 	
 	private Sale genFakeSale(long sellerId, int weekDay) {
 		Sale sale = new Sale();

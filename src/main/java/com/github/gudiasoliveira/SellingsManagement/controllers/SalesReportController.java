@@ -39,14 +39,5 @@ public class SalesReportController {
 		
 		Iterable<Sale> weekSales = saleDao.findByDateBetween(startDate, endDate);
 		return SalesReportItem.makeSalesReport(weekSales, 10);
-//		Map<Long, Integer> salesCountBySellerId = new HashMap<Long, Integer>();
-//		for (Sale sale : weekSales) {
-//			Seller seller = sale.getSeller();
-//			int salesCount = 1;
-//			if (salesCountBySellerId.containsKey(seller.getId())) {
-//				salesCount = salesCountBySellerId.get(seller.getId()) + 1;
-//			}
-//			salesCountBySellerId.put(seller.getId(), salesCount);
-//		}
 	}
 }
