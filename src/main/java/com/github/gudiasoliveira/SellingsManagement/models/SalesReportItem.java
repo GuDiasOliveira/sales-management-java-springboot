@@ -25,7 +25,7 @@ public class SalesReportItem {
 	public void addSale(Date date, Sale sale) {
 		Calendar cal = Calendar.getInstance();
 		cal.setTime(date);
-		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
@@ -42,7 +42,7 @@ public class SalesReportItem {
 	}
 	
 	public float getDailySalesAverage() {
-		return (float) totalSales / sales.size();
+		return (float) totalSales / 7; // In a week
 	}
 	
 	public static List<SalesReportItem> makeSalesReport(Iterable<Sale> sales, int rankLimit) {

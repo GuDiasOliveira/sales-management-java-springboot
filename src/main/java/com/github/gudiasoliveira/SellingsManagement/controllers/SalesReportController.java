@@ -24,14 +24,14 @@ public class SalesReportController {
 		Calendar cal = Calendar.getInstance();
 		// Beginning of the week
 		cal.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY);
-		cal.set(Calendar.HOUR, 0);
+		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
 		cal.set(Calendar.SECOND, 0);
 		cal.set(Calendar.MILLISECOND, 0);
 		Date startDate = new Date(cal.getTimeInMillis());
 		// End of the week
 		cal.set(Calendar.DAY_OF_WEEK, Calendar.SATURDAY);
-		cal.set(Calendar.HOUR, 23);
+		cal.set(Calendar.HOUR_OF_DAY, 23);
 		cal.set(Calendar.MINUTE, 59);
 		cal.set(Calendar.SECOND, 59);
 		cal.set(Calendar.MILLISECOND, 999);
