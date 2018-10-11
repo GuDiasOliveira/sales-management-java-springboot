@@ -5,12 +5,13 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class SalesReportItem {
 	private Seller seller;
-	private Map<Date, List<Sale>> sales;
+	private Map<Date, List<Sale>> sales = new HashMap<>();
 	private int totalSales = 0;
 	
 	public Seller getSeller() {
@@ -34,6 +35,10 @@ public class SalesReportItem {
 		}
 		sales.get(date).add(sale);
 		totalSales++;
+	}
+	
+	public void addSale(Sale sale) {
+		addSale(sale.getDate(), sale);
 	}
 	
 	public float getDailySalesAverage() {
